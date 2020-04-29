@@ -2,19 +2,14 @@
 ```
 找出 JavaScript 标准里所有的对象，分析有哪些对象是我们无法实现出来的，这些对象都有哪些特性
 ```
-###String Exotic Objects
->特性:[[GetOwnProperty]] [[DefineOwnProperty]] [[OwnPropertyKeys]]
->> StringCreate(value,prototype) StringGetOwnProperty(S,P)
+###Bound Function
+>特性:绑定调用对象中this指向
+>
+###String
+>特性:
 
-###Array Exotic Objects
->特性:[[DefineOwnProperty]]
->> ArrayCreate(length[,proto]) ArraySpeciesCreate(originalArray,length) ArraySetLength(A,Desc)
+###Array
+>特性:length 属性根据最大的下标自动发生变化
 
-###Arguments Exotic Objects
->特性:[[GetOwnProperty]] [[DefineOwnProperty]] [[Get]] [[Set]] [[Delete]]
->> CreateUnmappedArgumentsObject(argumentsList) CreateMappedArgumentsObject(func,formals,argumentsList,env)
-
-###Integer-Indexed Exotic Objects
->特性:[[GetOwnProperty]] [[HasProperty]] [[DefineOwnProperty]] [[Get]] [[Set]] [[OwnPropertyKeys]]
->> IntegerIndexedObjectCreate(prototype,internalSlotsList)
-IntegerIndexedElementGet(O,index) IntegerIndexedElementSet(O,index,value)
+###Arguments
+>特性:函数接收参数
