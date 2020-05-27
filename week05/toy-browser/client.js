@@ -1,4 +1,5 @@
 const net = require('net');
+const parser = require('./parser');
 
 class Request {
   constructor (options) {
@@ -183,7 +184,7 @@ class ChunkedBodyParser {
       this.current = this.READING_CHUNK;
     } else if (this.current === this.READING_CHUNK) {
       if (char === '\r') {
-        this.current = this.READING_CHUNK_END
+        this.current = this.READING_CHUNK_END;
         this.chunkLength = 0
       } else if (this.chunkLength > 0) {
         this.content.push(char);
@@ -205,9 +206,10 @@ void async function () {
       'X-Foo2': 'customed'
     },
     body: {
-      name: 'moling3650'
+      name: 'winter'
     }
   });
 
-  await request.send()
+  let response = await request.send();
+  let dom = parser.parseHTML(response);
 }();
